@@ -205,7 +205,9 @@ function readData(message) {
     speech.volume = 1;
     speech.rate = 0.7;
     speech.pitch = 1;
-
+    
+    var voices = window.speechSynthesis.getVoices();
+    speech.voice = voices.filter(function(voice) { return voice.name == 'Rishi'; })[0];    
     window.speechSynthesis.speak(speech);
     // ADDING A ANIMATION IN IMAGE WHILE SHE IS SPEAKING
     interVal = setInterval(() => {
